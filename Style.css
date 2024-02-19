@@ -1,0 +1,282 @@
+@keyframes arrowSpin {
+	0% {
+		opacity: 100%;
+	}
+	20% {
+		opacity: 0%;
+	}
+	80% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+@keyframes clickHere {
+	0% {
+		transform: translate(0,-50%);
+	}
+	49% {
+		transform: translate(5px,-50%);
+	}
+	50% {
+		transform: translate(5px,-50%);
+	}
+	99% {
+		transform: translate(0,-50%);
+	}
+	100% {
+		transform: translate(0,-50%);
+	}
+}
+
+body{
+	z-index: -1;
+	background-color: #5c5b5b;
+	text-align: center;
+}
+
+header{
+	z-index: 1;
+	background: url('Images/Header.png') center no-repeat;
+	background-size: contain;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	width: 100%;
+	margin:auto;
+	text-align: center;
+	position: fixed;
+	max-width: 1500px;
+	top: 0;
+	left: 0;
+	right: 0;
+	
+}
+
+header img {
+	max-width: 10%
+}
+
+@media (min-width: 2000px) {
+	header img {
+		max-width: 9%;
+	}
+}
+
+@media (min-width: 2400px) {
+	header img {
+		max-width: 8%;
+	}
+}
+
+a img {
+	max-width: 7%;
+	padding-bottom: 2%;
+	opacity: 80%;
+}
+
+main {
+    width: 80%;
+	max-width: 1250px;
+    background: url('Images/Background.png');
+	background-size: contain;
+	margin: auto;
+	border: solid 2px #b5a36a;
+	border-radius: 25px;
+  }
+
+.content {
+	padding-top: 4%;
+	padding-bottom: 15%;
+	display: grid;
+	grid-gap: 15%;
+	margin-bottom: 18%;
+}
+
+#intro {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 40%;
+	max-width: 75%;
+	margin: auto;
+	transition: 1s ease;
+}
+
+#greeting img {
+	padding-top: 14%;
+	width: 40%;
+	text-align: center;
+}
+
+#intro #Me{
+	position: relative;
+	border: 2px solid #b5a36a;
+	float: left;
+	width: 80%;
+	max-width: 400px;
+	margin:5%;
+	transition: width 1s ease;
+}
+
+#invisibleText {
+	font-family: Georgia, serif;
+	opacity: 0%;
+	display: none;
+	padding-right: 10%;
+	text-align: center;
+	margin: auto;
+	font-size: clamp(2px, 1.2vw, 24px);
+	color: #b5a36a;
+}
+
+#invisibleText #cvButton,
+#invisibleText #cvButton:visited,
+#invisibleText #cvButton:active {
+	color: rgba(0,0,0,0);
+	text-decoration: none;
+	font-size: clamp(5px, 2.4vw, 32px);
+	-webkit-text-stroke: .5px #b5a36a;
+	text-stroke: .5px #b5a36a; 
+}
+
+#intro #EArrow{
+	position: absolute;
+	width: 40px;
+	right: 0;
+	transform: translate(0, -50%);
+	padding: 5px;
+}
+
+#aboutMe #aboutMeHead {
+	max-width: 60%;
+}
+
+#aboutMe #aMArrow {
+	position: absolute;
+	transform: translate(-48%, -90%);
+	width: 5%;
+	max-width: 80px;
+}
+
+#aMContent {
+	display: none;
+	opacity: 0%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#aboutMe h1 {
+	text-align: center;
+	font-family: constantia;
+	color: #b5a36a;
+	font-size: clamp(5px, 2vw, 32px);
+}
+
+#aboutMe #aMBody {
+	color: #b5a36a;
+	font-size: clamp(5px, 1vw, 16px);
+}
+
+#personalLife {
+	position: relative;
+	text-align: center;
+	width: 50%;
+	border-right: 1px solid #b5a36a;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+#career {
+	position: relative;
+	text-align: center;
+	width: 50%;
+	border-left: 1px solid #b5a36a;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+#certButton img {
+	opacity: 0%;
+	display: none;
+	position: relative;
+	flex-direction: column;
+	margin: auto;
+	padding-top: 3%;
+	width: 20%;
+	cursor: pointer;
+}
+
+@media (max-width: 1250px) {
+	#aMContent {
+	display: none;
+	flex-direction: column;
+	}
+	
+	#career {
+		border-top: 1px solid #b5a36a;
+		border-left: 0px;
+		width: 80%;
+		font-size: clamp(8px, 1.5vw, 16px);
+	}
+	
+	#personalLife {
+		border-bottom: 1px solid #b5a36a;
+		border-right: 0px;
+		padding-bottom: 2%;
+		width: 80%;
+		font-size: clamp(8px, 1.5vw, 16px);
+	}
+}
+
+#contact {
+	color: #b5a36a;
+}
+
+#contact #cMArrow {
+	position: absolute;
+	transform: translate(-48%, -90%);
+	width: 5%;
+	max-width: 80px;
+}
+
+#contact #ContactMeHead{
+	max-width: 60%;
+}
+
+form {
+	font-size: clamp(5px, 2vw, 20px);
+	font-family: constantia;
+	color: #b5a36a;
+	margin:auto;
+	margin-bottom: 15%;	
+}
+
+form #send {
+	width: 10%;
+}
+
+#contact #formContents {
+	display: none;
+	opacity: 0%;
+}
+
+#contact p {
+	font-size: clamp(5px, 1.8vw, 20px);
+}
+
+form .formLabel {
+	font-family: constantia;
+	font-size: clamp(5px, 1.5vw, 16px);
+}
+	
+
+form #fullName, #emailAddress, #contactNumber {
+	border: 1.5px solid #b5a36a;
+}
+
+form #message {
+	border: 1.5px solid #b5a36a;
+}

@@ -1,0 +1,134 @@
+body{
+	z-index: -1;
+	background-color: #5c5b5b;
+	text-align: center;
+}
+
+header{
+	z-index: 1;
+	background: url('Images/Header.png') center no-repeat;
+	background-size: contain;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	width: 100%;
+	margin:auto;
+	text-align: center;
+	position: fixed;
+	max-width: 1500px;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+header img {
+	max-width: 10%;
+}
+
+#homeButton {
+	cursor: pointer;
+}
+
+a img {
+	max-width: 7%;
+	padding-bottom: 2%;
+	opacity: 80%;
+}
+
+@media (min-width: 2000px) {
+	header img {
+		max-width: 9%;
+	}
+}
+
+@media (min-width: 2400px) {
+	header img {
+		max-width: 8%;
+	}
+}
+
+main {
+    width: 80%;
+	max-width: 1250px;
+    background: url('Images/Background.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin: auto;
+	border: solid 2px #b5a36a;
+	border-radius: 25px;
+	max-height: 10%;
+  }
+
+.content {
+	padding-top: 4%;
+	padding-bottom: 15%;
+	display: grid;
+	grid-gap: 15%;
+	margin-bottom: 18%;
+}
+
+#intro {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 40%;
+	max-width: 75%;
+	margin: auto;
+	transition: 1s ease;
+}
+
+#greeting img {
+	padding-top: 14%;
+	width: 40%;
+	text-align: center;
+}
+
+#navPrompt {
+	font-size: clamp(2px, 1.2vw, 24px);
+	font: constantia;
+	color: #b5a36a;
+	text-align: center;
+	font-weight: 600;
+}
+
+#returnButton {
+	text-align: center;
+	display: none;
+	transition: opacity 0.5s ease;
+}
+
+#returnButton img {
+	width: 30%;
+}
+
+#certGrid {
+	display: flex;
+	padding: 5%;
+}
+
+#certLink {
+	font-size: clamp(2px, 1.2vw, 24px);
+	font: constantia;
+	color: #b5a36a;
+	text-align: center;
+}
+
+.certImage {
+	width: 15%;
+	margin: auto;
+	border: solid 1px #b5a36a;
+	transition: width 0.5s ease;
+	cursor: pointer;
+}
+
+.selected {
+	margin: auto;
+	width: 70%;
+	transition: width 0.5s ease;
+	margin-top: -6%;
+}
+
+.hidden {
+	display: none;
+}

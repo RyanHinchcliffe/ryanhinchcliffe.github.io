@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<meta charset="utf-8"/>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<title>Ryan Hinchcliffe Web CV</title>
+</head>
+<body>
+	<header>
+			<a class="tabs" href="#form"><img src="Images\Buttons\AboutMe4.png" onclick="seeAboutMe()"></img></a>
+			<img src="Images\logo.png" alt="Ryan Hinchcliffe Logo"></img>
+			<a class="tabs" href="#formContents"><img src="Images\Buttons\Contact5.png" onclick="seeContactMe()"></img></a>
+	</header>
+	<main class="container">
+		<div id="greeting">
+			<img src="Images\RyanHinchcliffe.png" alt="My name is Ryan Hinchcliffe, and I am a Full-Stack Web Developer"/>
+		</div>
+		<div class="content">
+			<div id="intro">
+				<img src="Images\intro.png" id="Me" alt="A picture of me, Ryan Hinchcliffe"> </img>
+				<div id="invisibleText"> 
+				Greetings! It is great to have you here.</br>My name is Ryan Hinchcliffe.<br/>
+				Consider this website my web CV. My goal was to develop a website completely without the use of Frameworks or CMS's, only the use of JavaScript, CSS, HTML, and images I have created to showcase my skills.<br/><br/>
+				<a id="cvButton" href="Ryan_Hinchcliffe_CV.pdf" download="Ryan_Hinchcliffe_CV.pdf" target="_blank">My CV</a><br/><br/>
+				Please click the above link to download a copy of my CV. Thank you for your interest!</div>
+				<a id="expandLink" href="#" >
+					<img id="EArrow" src="images\ExpandArrow.png"></img>
+				</a>
+			</div>
+			<div id="aboutMe">
+				<div><img src="Images\AboutMeheading.png" id="aboutMeHead" alt="The about me heading"></div>
+				<a href="#aMArrow"><img href="#" src="Images\ExpandCategory.png" id="aMArrow" alt="Press this button to expand the About Me section" onclick="seeAboutMe()"></a>
+				<div id="aMContent">
+					<div id="personalLife">
+						<h1>Personal Life</h1>
+						<div id="aMBody">
+							<p>In my personal time, I like to focus a lot on my physical health, which I find to be a necessity when you work at a computer, so I am often at the gym 5/6 days a week.</p>
+							<p>I also love to read. I mostly enjoy science fiction stories, I have read many of the Star Wars books, my favourite of which being the Darth Bane trilogy. I also love the works of HP Lovecraft, I have read over 45 of his stories, my favourite being The Call of Cthulu.</p>
+							<p>Any spare time will go to working on personal website projects such as this. This is my first project and I look to work on more moving forward, I have a genuine passion for coding and website development and find that, as I do not yet work in the field, it is important to take time to maintain and improve my abilities in this field where I can.</p>
+						</div>
+					</div>
+					<div id="career">
+						<h1>Career</h1>
+						<div id="aMBody">
+							<p>Since 2018 I have worked for AXA Health as a Customer Care consultant, and in early 2023 I became a senior in the role. Where this is not that I intend to pursue in my future as a career, I have developed a number of skills that will serve me well as I carry them with me along my career.</p>
+							<p>These skills include attention to detail, reliability, integrity, time management, and the ability to impart information onto others in a way that is concise and understandable. I pride myself in these abilities.</p>
+							<p>While working in this role, from 2021 to 2023, I have enrolled and completed a Full-stack Web development course online with The Training Room. This course taught me how to use HTML, JavaScript, CSS, PHP, Laravel and MySQL to a high standard, and it is with that knowledge that I have developed this website. My certificates can be downloaded below.</p>
+						</div>
+					</div>
+				</div>
+				<a id="aboutMe-Anchor"></a>
+				<div id="certButton">
+					<img id="certImage" src="images\Certifications.png" onclick="window.location.href = 'certificates.html'" alt="Click this button to download my certifications">
+				</div>
+			</div>
+			<div id="contact">
+				<div><img src="Images\ContactMeheading.png" id="ContactMeHead" alt="The contact me heading"></div>
+				<a href="#cMArrow"><div><img src="Images\ExpandCategory.png" id="cMArrow" alt="Press this button to expand the Contact Me section" onclick="seeContactMe()"></div></a>
+				</br>
+				<div id="formContents">
+				<p>If you are interested in contacting me about my Web development, please complete the below form:</p>
+				<form name="contactForm" method="post" action="">
+					<label for="fullName" class="formLabel">Full Name:</label>
+					<input type="text" img src="Images\TextBar.png" id="fullName" name="fullName">
+					</br>
+					</br>
+					<label for="emaiAddress" class="formLabel">Email Address:</label>
+					<input type="email" id="emailAddress" name="emailAddress">
+					</br>
+					</br>
+					<label for="contactNumber" class="formLabel">Contact Number:</label>
+					<input type="text" id="contactNumber" name="contactNumber">
+					</br>
+					</br>
+					<p>Please write your message below:</p>
+					<textarea id="message" name="message" cols="50" rows="5">
+					</textarea>
+					</br>
+					</br>
+					<input id="send" type="image" src="Images\SendButton.png" alt="Click this image to submit the form" onclick="formValidate(this.form);">
+				</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script>
+		var exLink = document.getElementById('expandLink');
+		var exArrow = document.getElementById('EArrow');
+		var aMArrow = document.getElementById('aMArrow');
+		var cMArrow = document.getElementById('cMArrow');
+		var exIntro = document.getElementById('intro');
+		var myImage = document.getElementById('Me');
+		var introText = document.getElementById('invisibleText');
+		var aMText = document.getElementById('aMContent');
+		var certButton = document.getElementById('certImage');
+		var cButtonCont = document.getElementById('buttonContain');
+		var formContents = document.getElementById('formContents');
+		var isArrowFlipped = false;
+		var aMArrowFlipped = false;
+		var cMArrowFlipped = false;
+		var isExpanded = false;
+		var aMExpanded = false;
+		var fCExpanded = false;
+		
+		function downloadCerts() {
+			certLink = 'Certificates.html';
+			window.open(certLink, '_blank');
+		}
+		
+		exArrow.style.animation = 'clickHere 1s infinite';			//intro arrow animation
+		
+		exLink.addEventListener('mousedown', function(event) {		//swap Intro arrow image on mouse down
+			exArrow.style.animation = 'none';
+			event.preventDefault();
+			if(!isArrowFlipped) {
+				exArrow.src = 'Images/ExArrowOnclick.png';
+			}	else {
+				exArrow.src = 'Images/ExArrowOnclickBack.png';
+			}
+			
+		});
+		
+		aMArrow.addEventListener('mousedown', function(event) {		//swap About me arrow image on mouse down
+			aMArrow.style.animation = 'none';
+			event.preventDefault();
+			if(!aMArrowFlipped) {
+				aMArrow.src = 'Images/ExpandCategoryOnclick.png';
+			}	else {
+				aMArrow.src = 'Images/ExpandCategoryOnclickBack.png';
+			}
+			
+		});
+		
+		cMArrow.addEventListener('mousedown', function(event) {		//swap Contact arrow image on mouse down
+			cMArrow.style.animation = 'none';
+			event.preventDefault();
+			if(!cMArrowFlipped) {
+				cMArrow.src = 'Images/ExpandCategoryOnclick.png';
+			}	else {
+				cMArrow.src = 'Images/ExpandCategoryOnclickBack.png';
+			}
+			
+		});
+		
+		exLink.addEventListener('mouseup', function(event) {		//When Intro mouse click is released, initiate arrow spin function
+			event.preventDefault();
+			exArrow.style.animationName = 'arrowSpin';
+			
+			if(!isArrowFlipped) {
+				isArrowFlipped = true;
+				exArrow.style.animationDuration = '1s';
+				setTimeout(function() {
+					exArrow.src = 'Images/ExpandArrowBack.png';
+				}, 	500);
+			}	else {
+				isArrowFlipped = false;
+				exArrow.style.animationDuration = '1s';
+				setTimeout(function() {
+					exArrow.src = 'Images/ExpandArrow.png';
+				}, 	500);
+			}
+			exArrow.addEventListener('animationend', function() {
+				exArrow.style.animationName = '';
+			}, {once: true});
+			
+			if(!isExpanded) {										//Expand the intro window
+				exIntro.style.animationDuration = '1s';
+				exIntro.style.width = '75%';
+				exIntro.style.borderRadius = '5%';
+				myImage.style.width = '45%';
+				setTimeout (function() {
+					introText.style.display = 'block';
+				}, 650);
+				setTimeout (function() {
+					introText.style.transition = '.5s ease';
+					introText.style.opacity = '100%';
+				}, 1000);
+			} else {												//Reduce intro window back if already expanded
+				exIntro.style.animationDuration = '1s';
+				exIntro.style.width = '40%';
+				exIntro.style.borderRadius = '10%';
+				myImage.style.width = '80%';
+				introText.style.transition = '.25s ease';
+				introText.style.opacity = '0%';
+				introText.style.display = 'none';
+			}
+			isExpanded = !isExpanded;
+		});
+		
+		function seeAboutMe() {		//When About Me mouse click is released, initiate arrow spin function
+			event.preventDefault();
+			aMArrow.style.animationName = 'arrowSpin';
+			
+			if(!aMArrowFlipped) {
+				aMArrowFlipped = true;
+				aMArrow.style.animationDuration = '1s';
+				setTimeout(function() {
+					aMArrow.src = 'Images/ExpandCategoryBack.png';
+				}, 	500);
+			}	else {
+				aMArrowFlipped = false;
+				aMArrow.style.animationDuration = '1s';
+				setTimeout(function() {
+					aMArrow.src = 'Images/ExpandCategory.png';
+				}, 	500);
+			}
+			aMArrow.addEventListener('animationend', function() {
+				aMArrow.style.animationName = '';
+			}, {once: true});
+			
+			if(!aMExpanded) {										//Reveal About Me text
+				aMContent.style.transition = '1s ';
+				certButton.style.transition = '1s ';
+				setTimeout(function() {
+					aMContent.style.opacity = '100%';
+					certButton.style.opacity = '100%';
+				}, 0);
+				aMContent.style.display = 'flex';
+				certButton.style.display = 'flex';
+			}
+			else {
+				aMContent.style.transitoin = '1s';
+				certButton.style.transition = '1s';
+				aMContent.style.opacity = '0%';
+				certButton.style.opacity = '0%';
+				setTimeout(function() {
+				aMContent.style.display = 'none';
+				certButton.style.display = 'none';
+				}, 500);
+			}
+			aMExpanded = !aMExpanded;
+		};
+		
+		
+		function seeContactMe() {		//When Contact mouse click is released, initiate arrow spin function
+			event.preventDefault();
+			cMArrow.style.animationName = 'arrowSpin';
+			
+			if(!cMArrowFlipped) {
+				cMArrowFlipped = true;
+				cMArrow.style.animationDuration = '1s';
+				setTimeout(function() {
+					cMArrow.src = 'Images/ExpandCategoryBack.png';
+				}, 	500);
+			}	else {
+				cMArrowFlipped = false;
+				cMArrow.style.animationDuration = '1s';
+				setTimeout(function() {
+					cMArrow.src = 'Images/ExpandCategory.png';
+				}, 	500);
+			}
+			cMArrow.addEventListener('animationend', function() {
+				cMArrow.style.animationName = '';
+			}, {once: true});
+		
+			if(!fCExpanded) {											//Reveal Form Contents
+				formContents.style.transition = '1s ';
+				setTimeout(function() {
+					formContents.style.opacity = '100%';
+				}, 0);
+				formContents.style.display = 'block';
+			}
+			else {
+				formContents.style.transitoin = '1s';
+				formContents.style.opacity = '0%';
+				setTimeout(function() {
+				formContents.style.display = 'none';
+				}, 500);
+			}
+			fCExpanded = !fCExpanded;
+		};
+		
+		certButton.addEventListener('mousedown', function(event) {	//swap Certifications image when clicked
+			certButton.src = 'Images/CertificationsOnclick.png';
+		});
+		
+		certButton.addEventListener('mouseup', function(event) {
+			certButton.src = 'Images/Certifications.png';
+		});
+		
+		
+		function formValidate(form) {
+			var clientName = form.fullName.value;
+			var clientEmail = form.emailAddress.value;
+			var clientNumber = form.contactNumber.value;
+			var clientMessage = form.message.value;
+			alert("Client name: " + clientName + "\n" + "Client Email address: " + clientEmail + "\n" + "Client contact number: " + clientNumber + "\n" + "Message: " + clientMessage);
+		}
+		
+		
+	</script>
+</body>
+</html>
